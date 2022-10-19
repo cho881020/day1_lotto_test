@@ -91,4 +91,16 @@ for i in range(6):
         #  1 <= int(랜덤값*45+1)  < 46    1~45의 값으로 바꾸자.
 
         rand_num = int(random() * 45 + 1)
-        print(rand_num)
+        
+        # 뽑을때부터 1~45이므로, 범위 검사 필요 X.
+
+        # 당첨번호 목록에 있는지? => 중복인가?
+        is_duplicated = rand_num in win_number_list
+
+        # 중복이 아니면 목록에 등록, 다음 숫자 뽑으러.
+
+        if not is_duplicated:
+            win_number_list.append(rand_num)
+            break
+
+print(f'당첨 번호 : {win_number_list}')
